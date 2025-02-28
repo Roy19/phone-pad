@@ -5,8 +5,9 @@ namespace PhoneNumberPad;
 public class LookupTable
 {
     private Dictionary<string, char> keyValuePairs;
+    private static LookupTable? instance;
 
-    public LookupTable()
+    private LookupTable()
     {
         keyValuePairs = new Dictionary<string, char>
         {
@@ -39,6 +40,15 @@ public class LookupTable
         };
     }
 
+    public static LookupTable GetLookupTable()
+    {
+        if (instance == null)
+        {
+            instance = new LookupTable();
+        }
+        return instance;
+    }
+
     public PhoneChar Convert(string input)
     {
         if (keyValuePairs.ContainsKey(input))
@@ -47,7 +57,7 @@ public class LookupTable
         }
         else
         {
-            throw new ArgumentException("Invalid input");
+            throw new InputInvalidException("Cannot lookup input string: " + input);
         }
     }
 }

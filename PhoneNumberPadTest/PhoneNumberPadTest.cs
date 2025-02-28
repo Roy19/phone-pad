@@ -9,6 +9,7 @@ public class PhoneNumberPadTest
     [InlineData("222 2 222#", "CAC")]
     [InlineData("227*#", "B")]
     [InlineData("4433555 555666#", "HELLO")]
+    [InlineData("8 88777444666*664#", "?????")]
     public void TestBasicCases(string input, string expected)
     {
         Assert.Equal(expected, PhoneNumberPad.OldPhonePad(input));
