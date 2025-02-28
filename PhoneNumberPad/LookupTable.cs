@@ -11,6 +11,10 @@ public class LookupTable
     {
         keyValuePairs = new Dictionary<string, char>
         {
+            {"0", ' '},
+            {"1", '&'},
+            {"11", '\''},
+            {"111", '('},
             { "2", 'A' },
             { "22", 'B' },
             { "222", 'C' },
