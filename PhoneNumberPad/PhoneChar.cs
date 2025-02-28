@@ -15,4 +15,9 @@ public class PhoneChar
     {
         return char.IsLetter(Symbol);
     }
+
+    public bool IsBackspace()
+    {
+        return Symbol == '*';
+    }
 }
