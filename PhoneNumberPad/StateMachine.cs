@@ -34,21 +34,14 @@ public class StateMachine
             }
             PhoneChar currentChar = lookupTable.Convert(typedString);
             result.Append(currentChar.Symbol);
+            if (phoneChar.IsDigit()) {
+                stack.Push(phoneChar);
+            }
         }
     }
 
     public string GetTypedString()
     {
-        while (stack.Count > 0)
-        {
-            string typedString = "";
-            while (stack.Count > 0 && !stack.Peek().IsAlphabet())
-            {
-                typedString = stack.Pop().Symbol + typedString;
-            }
-            PhoneChar currentChar = lookupTable.Convert(typedString);
-            result.Append(currentChar.Symbol);
-        }
         return result.ToString();
     }
 }

@@ -16,6 +16,11 @@ public class PhoneChar
         return char.IsLetter(Symbol);
     }
 
+    public bool IsDigit()
+    {
+        return char.IsDigit(Symbol);
+    }
+
     public bool IsBackspace()
     {
         return Symbol == '*';
